@@ -22,3 +22,23 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+current = datetime.now()
+cal = calendar.TextCalendar()
+arg = sys.argv
+
+def toNum(arg):
+    if arg.isdigit():
+        return int(arg)
+    else:
+        return False
+
+
+if (len(arg) == False):
+    print('Expecting input in the form of month [year]')
+    exit()
+
+month = len(arg) > 1 and toNum(arg[1]) or current.month
+year = len(arg) > 2 and toNum(arg[2]) or current.year
+
+cal.prmonth(year, month)

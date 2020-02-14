@@ -12,7 +12,8 @@ https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files
 with open('src/foo.txt') as f:
     read_data = f.read()
     print(read_data)
-    f.closed
+    f.close()
+    print(f.closed)
 
 # Open up a file called "bar.txt" (which doesn't exist yet) for
 # writing. Write three lines of arbitrary content to that file,
@@ -33,8 +34,10 @@ text = "First.\nSecond.\nThird.\nFourth"
 newFile.write(text)
 
 newFile.close()
+print(newFile.closed)
 
 with open('src/bar.txt') as b:
     read_data = b.read()
     print(read_data)
-    b.closed
+    b.close()
+    print(b.closed)
