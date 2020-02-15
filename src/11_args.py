@@ -13,6 +13,8 @@ print(f1(1, 2))
 # Write a function f2 that takes any number of integer arguments and prints the
 # sum. Google for "python arbitrary arguments" and look for "*args"
 
+# *args is used to pass a non-keyworded variable-length argument lists
+
 # YOUR CODE HERE
 def f2(*args):
     z = 0
@@ -49,6 +51,8 @@ print(f3(8))     # Should print 9
 # key: baz, value: 12
 #
 # Google "python keyword arguments".
+
+# **kwargs is used to pass a keyworded variable-length argument list (basically dictionaries)
 
 # YOUR CODE HERE
 def f4(**kwargs):

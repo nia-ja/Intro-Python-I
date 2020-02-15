@@ -23,22 +23,22 @@ import sys
 import calendar
 from datetime import datetime
 
-current = datetime.now()
-cal = calendar.TextCalendar()
-arg = sys.argv
+#get user input and store it into an array
+user_input = input('Enter year and a month (example: 2020 03): ').split(' ')
+#use list comprehension to remove any values that aren't numeric and convert them to integers
+user_input = [int(i) for i in user_input if i.isnumeric()]
 
-def toNum(arg):
-    if arg.isdigit():
-        return int(arg)
-    else:
-        return False
+#get current year and month
+now = datetime.now()
+year = now.year
+month = now.month
 
+#check user_input length; update year and month is needed
+if len(user_input) > 1:
+  year = user_input[0]
+  month = user_input[1]
+elif len(user_input) == 1:
+  year = user_input[0]
 
-if (len(arg) == False):
-    print('Expecting input in the form of month [year]')
-    exit()
-
-month = len(arg) > 1 and toNum(arg[1]) or current.month
-year = len(arg) > 2 and toNum(arg[2]) or current.year
-
-cal.prmonth(year, month)
+#print calendar in terminal
+calendar.TextCalendar().prmonth(year, month)
